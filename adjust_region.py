@@ -72,7 +72,7 @@ def create_bounding_box_lineset(region):
     return line_set
 
 def frame_viewer(dirpass: str, file_kind: str, start_frame:int=0) -> None:
-    files = get_files(dirpass, "bin", file_kind)
+    files = get_files(dirpass, "pcd", file_kind)
     frame = start_frame
     file_num = len(files)
     pcd = o3d.geometry.PointCloud()

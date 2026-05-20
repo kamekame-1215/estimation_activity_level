@@ -31,8 +31,8 @@ def main():
             [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00,  1.00000000e+00]]
   R2 = np.array(R2, dtype=np.float64) 
 
-  s1_bin_files = get_files(source1_dirpass, "bin", mode="LiDAR")
-  s2_bin_files = get_files(source2_dirpass, "bin", mode="LiDAR")
+  s1_bin_files = get_files(source1_dirpass, "pcd", mode="LiDAR")
+  s2_bin_files = get_files(source2_dirpass, "pcd", mode="LiDAR")
 
   for s1_file_name, s2_file_name in zip(s1_bin_files, s2_bin_files):
       s1_points = open_bin(source1_dirpass  + "/" + s1_file_name)[:,:3]

@@ -179,8 +179,8 @@ def main() -> None:
     if not os.path.exists(output_dir):
         os.makedirs(output_dir, exist_ok=True)
 
-    # 入力ディレクトリ内の .bin ファイルを取得
-    bin_files: List[str] = get_files(input_dir, "bin", mode="LiDAR")
+    # 入力ディレクトリ内の .pcd ファイルを取得
+    bin_files: List[str] = get_files(input_dir, "pcd", mode="LiDAR")
 
     if not bin_files:
         print("No .bin files found in the input directory.")

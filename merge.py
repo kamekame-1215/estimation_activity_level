@@ -53,8 +53,8 @@ def main():
       R2 = np.array(R2, dtype=np.float64) 
 
       # 入力ファイルリスト取得
-      s1_bin_files = get_files(source1_dirpass, "bin", mode="LiDAR")
-      s2_bin_files = get_files(source2_dirpass, "bin", mode="LiDAR")
+      s1_bin_files = get_files(source1_dirpass, "pcd", mode="LiDAR")
+      s2_bin_files = get_files(source2_dirpass, "pcd", mode="LiDAR")
 
       # ペアになっているファイルを並列処理用にパッキング
       args_list = [(s1_file_name, s2_file_name, source1_dirpass, source2_dirpass, dist_dir, R1, R2) 

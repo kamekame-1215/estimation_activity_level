@@ -78,7 +78,7 @@ def main():
     # region_3d = None
 
     # binファイルを取得
-    bin_files = sorted(get_files(pcd_dir, "bin", mode="LiDAR"))
+    bin_files = sorted(get_files(pcd_dir, "pcd", mode="LiDAR"))
 
     # 各フレームの重心を計算 (並列)
     args_list = [(bf, pcd_dir, region_3d) for bf in bin_files]

@@ -623,13 +623,13 @@ def main() :
 
     # 点群読み込み
     dirpath_base = sys.argv[1]
-    files_base = get_files(dirpath_base, "bin", file_type)
+    files_base = get_files(dirpath_base, "pcd", file_type)
     start_frame_base = int(sys.argv[2])
     points_base = np.vstack([open_bin(dirpath_base + "/" + files_base[i])[:, :3] for i in range(start_frame_base, start_frame_base+frame_stack_num)])
 
 
     dirpath_target = sys.argv[3]
-    files_target = get_files(dirpath_target, "bin", file_type)
+    files_target = get_files(dirpath_target, "pcd", file_type)
     start_frame_target = int(sys.argv[4])
     points_target = np.vstack([open_bin(dirpath_target + "/" + files_target[i])[:, :3] for i in range(start_frame_target, start_frame_target+frame_stack_num)])
 

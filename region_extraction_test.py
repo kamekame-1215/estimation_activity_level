@@ -44,7 +44,7 @@ def main() -> None:
     if not os.path.exists(output_dir):
         os.makedirs(output_dir, exist_ok=True)
 
-    bin_files: List[str] = get_files(input_dir, "bin", mode="LiDAR")
+    bin_files: List[str] = get_files(input_dir, "pcd", mode="LiDAR")
     args_list: List[Tuple[str, str, str]] = [(file_name, input_dir, output_dir) for file_name in bin_files]
 
     with Pool() as pool:

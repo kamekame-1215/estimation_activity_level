@@ -63,19 +63,16 @@ def get_files(dirpass: str, file_extension: str, mode:str="LiDAR") -> List[str]:
 
 def open_bin(file_pass: str) -> np.ndarray:
     """
-    binファイルの読み込み
+    pcdファイルの読み込み
 
     Args:
-        file: 点群データ
+        file_pass: pcdファイルのパス
 
     Returns:
-        np.ndarry: numpy配列
+        np.ndarray: numpy配列 (N, 3)
     """
-    with open(file_pass) as f:
-        points = np.fromfile(f, dtype=np.float32)
-    points = points.reshape(-1, 4)
-    # points = points.reshape(-1, 3) #merge後用
-    #points[:, 2] -= -1514.8226
+    pcd = o3d.io.read_point_cloud(file_pass)
+    points = np.asarray(pcd.points)
     return points
 
 # def open_KITTI_label(file: str, skip_DontCare:bool=True, scale:float=1.0) -> List:
