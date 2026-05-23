@@ -1,5 +1,5 @@
 from typing import List, Tuple
-from file_util import write_bin, load_bin, get_files
+from file_util import write_bin, open_bin, get_files
 
 import numpy as np
 import sys
@@ -141,7 +141,7 @@ def process_file(args: Tuple[str, str, str, bool]) -> None:
     input_file_path: str = os.path.join(input_dir, file_name)
 
     # 点群データの読み込み
-    point_cloud_np: np.ndarray = load_bin(input_file_path)
+    point_cloud_np: np.ndarray = open_bin(input_file_path)
 
     # 領域抽出
     extracted_point_cloud: np.ndarray = extract_area(point_cloud_np)
@@ -180,7 +180,7 @@ def main() -> None:
         os.makedirs(output_dir, exist_ok=True)
 
     # 入力ディレクトリ内の .pcd ファイルを取得
-    bin_files: List[str] = get_files(input_dir, "pcd", mode="LiDAR")
+    bin_files: List[str] = get_files(input_dir, "pcd", mode="KITTI")
 
     if not bin_files:
         print("No .bin files found in the input directory.")

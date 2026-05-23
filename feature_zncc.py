@@ -152,7 +152,7 @@ def main():
     save_first_image = True
 
     dataset_name = os.path.basename(os.path.normpath(pcd_dir))
-    bin_files = get_files(pcd_dir, "pcd", mode="LiDAR")
+    bin_files = get_files(pcd_dir, "pcd", mode="KITTI")
     bin_files = sorted(bin_files)
 
     args_list = [(bf, pcd_dir, region_3d, projection_region, resolution) for bf in bin_files]
