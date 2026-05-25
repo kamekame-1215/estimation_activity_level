@@ -56,10 +56,10 @@ def main():
     # 2. min-maxスケーリング
     #   pr_k: [1, 5] => (x - 1)/4
     #   score: [1, 5] => (x - 1)/4
-    #   test_score: [0, 10] => x/10
+    #   test_score: [0, 5] => x/5
     df['pr_k_scaled'] = (df['pr_k'] - 1.0) / (5.0 - 1.0)
     df['score_scaled'] = (df['score'] - 1.0) / (5.0 - 1.0)
-    df['test_score_scaled'] = (df['test_score'] - 0.0) / (10.0 - 0.0)
+    df['test_score_scaled'] = (df['test_score'] - 0.0) / (5.0 - 0.0)
 
     # 3. クラスタリング (k=3)
     kmeans = KMeans(n_clusters=3, random_state=42)
@@ -81,7 +81,7 @@ def main():
         # 再度スケーリングデータを生成 (先ほど drop したので再計算)
         pr_k_scaled = (df['pr_k'] - 1.0) / 4.0
         score_scaled = (df['score'] - 1.0) / 4.0
-        test_score_scaled = df['test_score'] / 10.0
+        test_score_scaled = df['test_score'] / 5.0
 
         # プロット用の行列 X2
         X2 = np.column_stack((pr_k_scaled, score_scaled, test_score_scaled))
